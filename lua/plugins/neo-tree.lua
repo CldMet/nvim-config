@@ -44,7 +44,7 @@ return {
 			window = {
 				position = "float",
 				mappings = {
-					["A"] = "git_add_all",
+					["gA"] = "git_add_all",
 					["gu"] = "git_unstage_file",
 					["ga"] = "git_add_file",
 					["gr"] = "git_revert_file",
