@@ -166,21 +166,21 @@ return {
 			"stylua",
 		})
 
-		local old_servers = {
-			--"ts_ls",
-			"vtsls",
-		}
+		-- local old_servers = {
+		-- 	--"ts_ls",
+		-- 	"vtsls",
+		-- }
 
 		require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
-		local function inTable(tbl, item)
-			for key, value in pairs(tbl) do
-				if value == item then
-					return true
-				end
-			end
-			return false
-		end
+		-- local function inTable(tbl, item)
+		-- 	for key, value in pairs(tbl) do
+		-- 		if value == item then
+		-- 			return true
+		-- 		end
+		-- 	end
+		-- 	return false
+		-- end
 
 		for server, cfg in pairs(servers) do
 			cfg.capabilities = vim.tbl_deep_extend("force", {}, capabilities, cfg.capabilities or {})
