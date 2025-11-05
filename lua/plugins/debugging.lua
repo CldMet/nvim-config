@@ -10,9 +10,21 @@ return {
 		local dap = require("dap")
 		local utils = require("dap.utils")
 		local dapui = require("dapui")
+		local dap_python = require("dap-python")
+		local python = require("venv-selector").python
+
+		local mason_debugpy = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python"
+
+		dap_python.resolve_python = function()
+			local python_path = python
+			if not python_path then
+				return vim.fn.exepath("python3")
+			end
+			return python_path
+		end
 
 		dapui.setup()
-		require("dap-python").setup("debugpy-adapter")
+		dap_python.setup()
 
 		---@diagnostic disable-next-line: inject-field
 		dap.adapters = {
@@ -25,6 +37,11 @@ return {
 						"${port}",
 					},
 				},
+			},
+			["python"] = {
+				type = "executable",
+				command = mason_debugpy,
+				args = { "-m", "debugpy.adapter" },
 			},
 		}
 
@@ -46,6 +63,18 @@ return {
 				},
 			}
 		end
+
+		dap.configurations.python = {
+			{
+				type = "python",
+				request = "launch",
+				name = "Launch file",
+				program = "${file}",
+				python_path = function()
+					return dap_python.resolve_python()
+				end,
+			},
+		}
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()

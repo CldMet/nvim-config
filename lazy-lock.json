@@ -31,8 +31,9 @@
   "roslyn.nvim": { "branch": "main", "commit": "7ba2dd0a5628c5ad3d8cc5a22e66ece3efc371bc" },
   "rzls.nvim": { "branch": "main", "commit": "bbfe0f5429cc74ca53815875faf4710c2a54f01b" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
-  "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
+  "telescope.nvim": { "branch": "latest", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "todo-comments.nvim": { "branch": "main", "commit": "19d461ddd543e938eb22505fb03fa878800270b6" },
+  "venv-selector.nvim": { "branch": "main", "commit": "0241027095d7efd111b84ff4e980b3d1cce2335c" },
   "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
   "vim-rhubarb": { "branch": "master", "commit": "5496d7c94581c4c9ad7430357449bb57fc59f501" },
   "which-key.nvim": { "branch": "main", "commit": "b4177e3eaf15fe5eb8357ebac2286d488be1ed00" }
