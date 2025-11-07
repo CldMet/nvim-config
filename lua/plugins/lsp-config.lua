@@ -1,7 +1,15 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		{ "mason-org/mason.nvim", opts = {} },
+		{
+			"mason-org/mason.nvim",
+			opts = {
+				registries = {
+					"github:mason-org/mason-registry",
+					"github:Crashdummyy/mason-registry",
+				},
+			},
+		},
 		"mason-org/mason-lspconfig.nvim",
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{
@@ -150,16 +158,8 @@ return {
 					},
 				},
 			},
-			--vtsls = {
-			--	root_dir = require("lspconfig.util").root_pattern(
-			--		"package.json",
-			--		"jsconfig.json",
-			--		"tsconfig.json",
-			--		".git"
-			--	) or vim.fn.getcwd(),
-			--	single_file_support = true,
-			--	flags = { debounce_text_changes = 300 },
-			--},
+			roslyn = {},
+			rzls = {},
 		}
 		local ensure_installed = vim.tbl_keys(servers or {})
 		vim.list_extend(ensure_installed, {
