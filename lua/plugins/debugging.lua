@@ -24,7 +24,7 @@ return {
 		end
 
 		dapui.setup()
-		dap_python.setup()
+		dap_python.setup(mason_debugpy)
 
 		---@diagnostic disable-next-line: inject-field
 		dap.adapters = {
@@ -64,17 +64,31 @@ return {
 			}
 		end
 
-		dap.configurations.python = {
-			{
-				type = "python",
-				request = "launch",
-				name = "Launch file",
-				program = "${file}",
-				python_path = function()
-					return dap_python.resolve_python()
-				end,
-			},
-		}
+		-- dap.configurations.python = {
+		-- 	{
+		-- 		type = "python",
+		-- 		request = "launch",
+		-- 		name = "Launch file",
+		-- 		program = "${file}",
+		-- 		python_path = function()
+		-- 			return dap_python.resolve_python()
+		-- 		end,
+		-- 	},
+		-- 	{
+		-- 		type = "python",
+		-- 		request = "attach",
+		-- 		name = "Attach (enter host:port)",
+		-- 		connect = function()
+		-- 			local host = vim.fn.input("host: ", "127.0.0.1")
+		-- 			local port = vim.fn.input("port: ", "5678")
+		-- 			return { host = host, port = tonumber(port) or 5678 }
+		-- 		end,
+		-- 		pathMappings = {
+		-- 			{ localRoot = vim.fn.getcwd(), remoteRoot = "." },
+		-- 		},
+		-- 		justMyCode = false,
+		-- 	},
+		-- }
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
