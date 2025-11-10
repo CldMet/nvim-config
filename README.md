@@ -2,20 +2,20 @@
 
 My Neovim config.
 
-This repository contains my personal Neovim configuration written in Lua. I created this repo to maintain my own Neovim config and to provide a launch point for any one who wants to use the config. This config is inspired by youtube content creators, the Neovim Kickstart config and other Neovim users configs. Feel free to pinch code or fork your own version.
+This repository contains my personal Neovim configuration written in Lua. I created this repo to maintain my own Neovim config and to provide a launch point for any one who wants to use the config. This config is inspired by YouTube content creators, the Neovim Kickstart config and other Neovim users configs. Feel free to pinch code or fork your own version.
 
-I use this config on linux and Win 11 WSL2, linux just works, WSL can throw some curveballs and appears to be much pickier with the config.  
+I use this config on Linux and Win 11 WSL2, Linux just works, WSL can throw some curve balls and appears to be much pickier with the config.
 
 ## Requirements
 
-- Neovim 0.11.* (do not use nightly builds)
+- Neovim 0.11.\* (do not use nightly builds)
 - Git
 - A Nerdfont (https://www.nerdfonts.com/font-downloads)
-- A hardware accelerated terminal I like WezTerm on linux, and Windows Terminal for Win 11. 
+- A hardware accelerated terminal emulator. I like WezTerm on Linux, and Windows Terminal for Win 11.
 
 ## Installation
 
-All install steps are written with debian based distros in mind, im using Ubuntu in WSL.
+All install steps are written with Debian based distros in mind, im using Ubuntu in WSL.
 
 ### Install dependencies
 
@@ -46,7 +46,7 @@ tar xzvf /tmp/nvim-linux-x86_64.tar.gz
 sudo rm -rf /opt/nvim && sudo mv /tmp/nvim-linux-x86_64 /opt/nvim
 ```
 
-4. Create symlink from /opt to /usr/loacl/bin for PATH 
+4. Create symlink from /opt to /usr/loacl/bin for PATH
 
 ```bash
 sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
@@ -102,9 +102,9 @@ On first run the plugin manager configured in this repo should bootstrap and ins
 - Exit insert mode return to Normal mode: `esc key`
 - Save current file `:w + Enter`
 - Save all files `:wa + Enter`
-- leader key to acces more commands is `space` in Normal mode
+- leader key to access more commands is `space` in Normal mode
 
-The which-key plugin is installed pressing the leader key will provide keymapping hints. 
+The which-key plugin is installed pressing the leader key will provide keymapping hints.
 
 ## Repository structure
 
@@ -118,23 +118,24 @@ Explore the `lua/` directory to see how things are organized and to customize se
 
 This config is meant to be customized:
 
+- Use git, make changes in a separate branches
 - To change options, edit the relevant files in `lua/`
-- To add or remove plugins, update the plugin list in the plugin manager configuration
-- Keep your customizations in a separate file or branch if you want to preserve upstream changes
+- To add or remove plugins, add or remove .lua files from `lua/plugins`
 
 ## Troubleshooting
 
-- If Neovim fails to start after installing this config, restore your previous config from the backup you created.
-- If a plugin fails to install, open Neovim and run the plugin manager's manual sync/install command.
 - Check `:messages` or `:checkhealth` in Neovim for diagnostics.
 
-## Contributing
+## Thanks and references
 
-This repo is my personal config. If you want to adapt or suggest improvements, feel free to open an issue or submit a PR — or fork and tailor it to your workflow.
+My thanks to the following YouTube content creators their videos introduced me to Neovim and have been extremely helpful creating this config. Check out their videos if you want to learn more.
 
-## License
+- ThePrimeagen
+- typecraft
+- Henry Misc
+- ramboe
 
-No license file included in this repository by default. If you want to use or redistribute this configuration, consider adding a LICENSE file (MIT is a common choice).
+The Neovim kickstart config got me up and running with Neovim its definitely worth looking into if you want to learn Neovim and the config, it has explanations written into the config files. https://github.com/nvim-lua/kickstart.nvim
 
 ---
 
