@@ -26,9 +26,11 @@ sudo apt update
 sudo apt install make gcc ripgrep unzip git xclip curl
 ```
 
-### Neovim install
+### Neovim install / update
 
-1. Download the latest release package for Neovim
+Use these steps to install and update Neovim :latest
+
+1. Download the latest release package for Neovim to /tmp
 
 ```bash
 curl -LO --output-dir /tmp https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
@@ -37,22 +39,28 @@ curl -LO --output-dir /tmp https://github.com/neovim/neovim/releases/latest/down
 2. Unzip the downloaded file
 
 ```bash
-tar xzvf /tmp/nvim-linux-x86_64.tar.gz
+tar xzvf /tmp/nvim-linux-x86_64.tar.gz -C /tmp
 ```
 
-3. Move extracted file to /opt directory
+3. Ensure the destination directory is clear (needed for updating)
 
 ```bash
-sudo rm -rf /opt/nvim && sudo mv /tmp/nvim-linux-x86_64 /opt/nvim
+sudo rm -rf /opt/nvim
 ```
 
-4. Create symlink from /opt to /usr/loacl/bin for PATH
+4. Move extracted file to /opt directory
+
+```bash
+sudo mv /tmp/nvim-linux-x86_64 /opt/nvim
+```
+
+5. Create symlink from /opt to /usr/local/bin for PATH
 
 ```bash
 sudo ln -sf /opt/nvim/bin/nvim /usr/local/bin/nvim
 ```
 
-5. Clean up /tmp files
+6. Clean up /tmp files
 
 ```bash
 rm /tmp/nvim-linux-x86_64.tar.gz
